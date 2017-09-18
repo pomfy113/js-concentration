@@ -1,9 +1,11 @@
 var resetButton = document.getElementById("reset-button");
 var gameSquares = [];
 var firstSquare = null;
-
-
+var attempts = 0;
+document.getElementById("score").innerHTML = attempts;
 var colors = [];
+
+
 for (var i = 0; i < 10; i++) {
   colors.push('square-' + i);
 }
@@ -79,7 +81,6 @@ function setupGame() {
       for (var i = 0; i < array.length; i++) {
         var index = random(randomColors.length);      // Get a random index
         var color = randomColors.splice(index, 1)[0]; // Get the color at that index
-        // Use that color to initialize the GameSquare
         gameSquares.push(new GameSquare(array[i], color));
     }
 }
@@ -103,6 +104,9 @@ function checkGame(gameSquare) {
         }, 400);
       }
       firstSquare = null;
+      attempts += 1
+      document.getElementById("score").innerHTML = attempts;
+
     }
 
     function clearGame() {
@@ -112,6 +116,10 @@ function checkGame(gameSquare) {
       setTimeout(function() {
         randomizeColors();
       }, 500);
+      attempts = 0;
+      document.getElementById("score").innerHTML = attempts;
+
+
     }
 
 setupGame();

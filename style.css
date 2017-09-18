@@ -1,3 +1,9 @@
+button{
+    position: absolute;
+    left: 30%;
+    top: 5%;
+}
+
 #game {
   align-items: center;
   width: 400px;
@@ -5,16 +11,21 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  border: 1px solid red;
+  border: 20px solid #DDDDDD;
+  background: #DDDDDD;
+  border-radius: 20px;
   position: absolute;
   left: 30%;
+  top: 5%;
 }
 
 .game-square {
   box-sizing: border-box;
-  border: 1px solid #000;
-  width: 100px;
-  height: 100px;
+  margin: 1px;
+  border: 1px solid #DDDDDD;
+  border-radius: 20px;
+  width: 98px;
+  height: 98px;
   position: relative;
   overflow: hidden;
 }
@@ -32,7 +43,7 @@
 }
 
 .game-square > div > div:first-child {
-  background-color: gray;
+  background-color: #A9A9A9;
 }
 
 .flip > div {
