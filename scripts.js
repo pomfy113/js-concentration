@@ -1,10 +1,13 @@
+var startButton = document.getElementById("start-button");
 var resetButton = document.getElementById("reset-button");
+
 var gameSquares = [];
 var firstSquare = null;
 var attempts = 0;
 document.getElementById("score").innerHTML = attempts;
 var colors = [];
-
+var timeRemaining =  10;
+display = document.querySelector('#time');
 
 for (var i = 0; i < 10; i++) {
   colors.push('square-' + i);
@@ -109,6 +112,7 @@ function checkGame(gameSquare) {
 
     }
 
+//Reset
     function clearGame() {
       gameSquares.forEach(function(gameSquare) {
         gameSquare.reset();
@@ -118,8 +122,33 @@ function checkGame(gameSquare) {
       }, 500);
       attempts = 0;
       document.getElementById("score").innerHTML = attempts;
-
-
     }
 
-setupGame();
+
+    function startTimer(duration, display) {
+        var timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.textContent = minutes + ":" + seconds;
+            if (--timer < 0) {
+                timer = duration;
+                alert("Times up! Clearing the board!");
+                clearGame();
+            }
+        }, 1000);
+        resetButton.onclick = function(){
+            timer = timeRemaining;
+            clearGame();
+            }
+    }
+
+startButton.onclick = function(){
+    startTimer(timeRemaining, display);
+    setupGame();
+
+}
