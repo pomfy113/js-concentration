@@ -1,6 +1,12 @@
+
+.top{
+    font-family: 'Asap Condensed', sans-serif;
+    font-size: 150%;
+}
+
 .actionbuttons{
     position: absolute;
-    left: 30%;
+    left: 20%;
     top: 5%;
 }
 
@@ -15,7 +21,7 @@
   background: #DDDDDD;
   border-radius: 20px;
   position: absolute;
-  left: 30%;
+  left: 20%;
   top: 5%;
 }
 
