@@ -142,6 +142,8 @@ function checkGame(gameSquare) {
       }, 500);
       attempts = 0;
       document.getElementById("score").innerHTML = attempts;
+      location.reload()
+
     }
 
 //timer function; borrowed the timer format from a stackoverflow place
